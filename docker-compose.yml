@@ -1,0 +1,89 @@
+version: '3.8'
+
+services:
+  # MongoDB database (LTS)
+  mongodb:
+    image: mongo:7-latest
+    container_name: pathster-mongodb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: pathster_user
+      MONGO_INITDB_ROOT_PASSWORD: pathster_password_dev
+      MONGO_INITDB_DATABASE: pathster_campus
+    ports:
+      - '27017:27017'
+    volumes:
+      - mongodb_data:/data/db
+    healthcheck:
+      test:
+        [
+          'CMD',
+          'mongosh',
+          '--eval',
+          'db.adminCommand("ping")',
+          '--username',
+          'pathster_user',
+          '--password',
+          'pathster_password_dev',
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Redis cache
+  redis:
+    image: redis:7-alpine
+    container_name: pathster-redis
+    ports:
+      - '6379:6379'
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Backend API service
+  server:
+    build:
+      context: .
+      dockerfile: apps/server/Dockerfile
+    container_name: pathster-server
+    environment:
+      NODE_ENV: development
+      PORT: 3000
+      LOG_LEVEL: debug
+      DATABASE_URL: mongodb://pathster_user:pathster_password_dev@mongodb:27017/pathster_campus?authSource=admin
+      REDIS_URL: redis://redis:6379
+      API_CORS_ORIGIN: 'http://localhost:8081,http://localhost:3000,http://localhost:8082'
+    ports:
+      - '3000:3000'
+    depends_on:
+      mongodb:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    volumes:
+      - ./apps/server/src:/app/apps/server/src
+      - ./apps/server/tests:/app/apps/server/tests
+    command: npm run dev -w apps/server
+
+  # Frontend Client service
+  client:
+    build:
+      context: .
+      dockerfile: apps/client/Dockerfile
+    container_name: pathster-client
+    environment:
+      NODE_ENV: development
+      EXPO_PUBLIC_API_BASE_URL: 'http://localhost:3000'
+      EXPO_PUBLIC_API_TIMEOUT: '30000'
+    ports:
+      - '8082:3000'
+    depends_on:
+      - server
+    volumes:
+      - ./apps/client/src:/app/apps/client/src
+      - ./apps/client/app.json:/app/apps/client/app.json
+    command: expo start --web --clear
+
+volumes:
+  mongodb_data:

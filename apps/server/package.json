@@ -1,8 +1,8 @@
 {
-  "name": "@project-x/server",
+  "name": "@pathster/server",
   "version": "0.1.0",
   "private": true,
-  "description": "Express microservice for project-x.",
+  "description": "Express microservice for Pathster backend API.",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -16,12 +16,16 @@
     "clean": "node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\""
   },
   "dependencies": {
-    "express": "^5.0.0"
+    "@pathster/api-types": "*",
+    "express": "^5.0.0",
+    "uuid": "^10.0.0",
+    "winston": "^3.14.2"
   },
   "devDependencies": {
     "@types/express": "^5.0.1",
     "@types/node": "^25.0.0",
     "@types/supertest": "^7.0.0",
+    "@types/uuid": "^10.0.0",
     "supertest": "^7.1.1",
     "tsx": "^4.19.4",
     "vitest": "^4.0.0"

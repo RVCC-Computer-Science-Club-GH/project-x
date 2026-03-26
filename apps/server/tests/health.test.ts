@@ -8,6 +8,9 @@ describe('GET /health', () => {
     const response = await request(app).get('/health');
 
     expect(response.status).toBe(200);
-    expect(response.body).toEqual({ status: 'ok' });
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+    expect(response.body.status).toBe('ok');
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+    expect(response.body.requestId).toBeDefined();
   });
 });

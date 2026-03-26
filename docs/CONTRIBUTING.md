@@ -1,4 +1,4 @@
-# Contributing to "X"
+# Contributing to Pathster
 
 Thanks for helping build RVCC's campus community app! This guide covers development workflows, code standards, and feature integration.
 
@@ -8,8 +8,8 @@ Thanks for helping build RVCC's campus community app! This guide covers developm
 
 ```bash
 # Clone the repo
-git clone https://github.com/rvcc/project-x.git
-cd project-x
+git clone https://github.com/rvcc/pathster.git
+cd pathster
 
 # Use correct Node version
 nvm use

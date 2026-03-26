@@ -1,6 +1,6 @@
-# "X" Architecture Guide
+# Pathster Architecture Guide
 
-High-level system design, API contracts, and data flows for the "X" campus community app.
+High-level system design, API contracts, and data flows for the Pathster campus community app.
 
 ## System overview
 
@@ -143,7 +143,7 @@ export const toLocationResponse = (model: Location) => ({
 
 ### Data & Storage
 
-**Database** (TBD: PostgreSQL, MongoDB, etc.):
+**Database** (MongoDB LTS):
 
 - `locations` table — campus POIs, classrooms, buildings
 - `submissions` table — user-submitted pins, photos, sensor tags

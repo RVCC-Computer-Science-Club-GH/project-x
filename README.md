@@ -1,8 +1,8 @@
-# "X" — RVCC Campus Community App
+# Pathster — RVCC Campus Community App
 
-**One app. Find your class. Hear campus live. X guides RVCC.**
+**One app. Find your class. Hear campus live. Pathster guides RVCC.**
 
-"X" is RVCC's all-in-one campus app: dead-accurate GPS map to every classroom plus live Radio Club streaming—right on your phone or browser. Students build the map themselves with AR scans and pins, earning gift cards, free meals, or competing for prizes. Built with React Native + Expo for seamless cross-platform deployment.
+Pathster is RVCC's all-in-one campus app: dead-accurate GPS map to every classroom plus live Radio Club streaming—right on your phone or browser. Students build the map themselves with AR scans and pins, earning gift cards, free meals, or competing for prizes. Built with React Native + Expo for seamless cross-platform deployment.
 
 ## Mission
 
