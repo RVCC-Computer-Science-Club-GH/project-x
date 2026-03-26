@@ -1,0 +1,36 @@
+{
+  "name": "project-x",
+  "version": "0.1.0",
+  "private": true,
+  "description": "TypeScript monorepo root for apps (microservices) and shared libs.",
+  "workspaces": [
+    "apps/*",
+    "libs/*"
+  ],
+  "scripts": {
+    "build": "node ./tools/run-workspaces.mjs build",
+    "dev": "node ./tools/run-workspaces.mjs dev",
+    "test": "node ./tools/run-workspaces.mjs test",
+    "lint": "node ./tools/run-workspaces.mjs lint",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "precommit:verify": "npm run format:check && npm run lint && npm run test",
+    "prepare": "husky",
+    "typecheck": "node ./tools/run-workspaces.mjs typecheck",
+    "clean": "node ./tools/run-workspaces.mjs clean"
+  },
+  "devDependencies": {
+    "eslint": "^9.24.0",
+    "eslint-config-prettier": "^10.1.1",
+    "husky": "^9.1.7",
+    "prettier": "^3.5.3",
+    "typescript-eslint": "^8.30.1",
+    "typescript": "^5.9.0",
+    "vitest": "^4.0.0"
+  },
+  "engines": {
+    "node": "^24.0.0",
+    "npm": "^11.0.0"
+  },
+  "packageManager": "npm@11.0.0"
+}
