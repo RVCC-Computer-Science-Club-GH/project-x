@@ -1,0 +1,5 @@
+# Static assets directory
+# Add images, fonts, and other static files here
+# These will be bundled with the app
+
+# Add .gitkeep to preserve directory in version control

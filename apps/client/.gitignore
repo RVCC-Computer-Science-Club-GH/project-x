@@ -30,8 +30,11 @@ yarn-error.*
 .DS_Store
 *.pem
 
-# local env files
+# local env files - see env/ directory for environment configuration
+.env
 .env*.local
+/env/.env
+/env/.env.local
 
 # typescript
 *.tsbuildinfo
@@ -39,3 +42,10 @@ yarn-error.*
 # generated native folders
 /ios
 /android
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
