@@ -1,0 +1,7 @@
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Note: .env.example should be committed
+# .env.development and .env.production can be local-specific or committed for team use
