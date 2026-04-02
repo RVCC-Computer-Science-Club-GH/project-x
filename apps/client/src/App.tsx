@@ -1,15 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { colors, spacing, typography } from './presentation/styles';
-import serviceLocator from './service-locator';
+import './service-locator';
 
 /**
  * Root App Component
  * Sets up the app with clean architecture and dependency injection
  */
 export default function App() {
-  // Service locator initializes all dependencies and use cases
-  // Access via serviceLocator.getGetCurrentUserUseCase(), etc.
+  // Service locator initializes dependencies via side-effect import above.
 
   return (
     <View style={styles.container}>
