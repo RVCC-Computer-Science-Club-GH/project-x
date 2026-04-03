@@ -5,6 +5,7 @@
  */
 
 import type { UserDTO, LocationDTO } from '../models';
+export { GeoJSONDataSource, type GeoJSONFeature, type GeoJSONFeatureCollection } from './geojson.datasource';
 
 export interface IRemoteDataSource {
   getUser(id: string): Promise<UserDTO>;

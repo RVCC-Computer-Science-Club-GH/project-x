@@ -5,7 +5,7 @@
  */
 
 import { createApiClient } from './config/api';
-import { RemoteDataSource, LocalDataSource } from './data/datasources';
+import { RemoteDataSource, LocalDataSource, GeoJSONDataSource } from './data/datasources';
 import { UserRepository, LocationRepository } from './data/repositories';
 import {
   GetUserUseCase,
@@ -19,6 +19,7 @@ class ServiceLocator {
   // Datasources
   private remoteDataSource: RemoteDataSource;
   private localDataSource: LocalDataSource;
+  private geojsonDataSource: GeoJSONDataSource;
 
   // Repositories
   private userRepository: UserRepository;
@@ -34,6 +35,7 @@ class ServiceLocator {
     const apiClient = createApiClient();
     this.remoteDataSource = new RemoteDataSource(apiClient);
     this.localDataSource = new LocalDataSource();
+    this.geojsonDataSource = new GeoJSONDataSource();
 
     // Initialize repositories
     this.userRepository = new UserRepository(this.remoteDataSource, this.localDataSource);
@@ -66,6 +68,11 @@ class ServiceLocator {
 
   getGetLocationsUseCase(): GetLocationsUseCase {
     return this.getLocationsUseCase;
+  }
+
+  // Expose datasources
+  getGeoJSONDataSource(): GeoJSONDataSource {
+    return this.geojsonDataSource;
   }
 }
 

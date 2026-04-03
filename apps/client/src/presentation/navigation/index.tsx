@@ -1,29 +1,46 @@
 /**
  * Navigation Setup
- * Configure React Navigation for the app
- * 
- * TODO: Install @react-navigation packages when compatible versions are available
- * For now, this is a placeholder for the navigation structure
+ * Simple navigation implementation without React Navigation
+ * TODO: Upgrade to @react-navigation/native when compatible versions are available
  */
 
-import React from 'react';
-import { View, Text } from 'react-native';
+import React, { useState } from 'react';
+import { HomeScreen, MapScreen } from '../screens';
 
 export type RootStackParamList = {
   Home: undefined;
+  Map: undefined;
   Details: { id: string };
-  // Add other routes here
 };
+
+export type CurrentScreen = 'Home' | 'Map' | 'Details';
 
 /**
  * Root Navigator Component
- * Will be replaced with React Navigation setup when dependencies are resolved
+ * Simple screen management without React Navigation
+ * This can be upgraded to use React Navigation once all dependencies are compatible
  */
 export const RootNavigator: React.FC = () => {
-  return (
-    <View>
-      <Text>Navigation setup - React Navigation to be added</Text>
-    </View>
-  );
+  const [currentScreen, setCurrentScreen] = useState<CurrentScreen>('Home');
+
+  const handleNavigateToMap = () => {
+    setCurrentScreen('Map');
+  };
+
+  const handleNavigateHome = () => {
+    setCurrentScreen('Home');
+  };
+
+  switch (currentScreen) {
+    case 'Map':
+      return (
+        <MapScreen />
+      );
+    case 'Home':
+    default:
+      return (
+        <HomeScreen onNavigateToMap={handleNavigateToMap} />
+      );
+  }
 };
 

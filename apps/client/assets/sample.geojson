@@ -1,0 +1,36 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2026-04-02T17:05:11Z",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/357746143",
+        "addr:city": "Branchburg",
+        "addr:country": "US",
+        "addr:housenumber": "118",
+        "addr:postcode": "08876",
+        "addr:state": "NJ",
+        "addr:street": "Lamington Road",
+        "amenity": "college",
+        "contact:phone": "+1 908 526 1200",
+        "contact:website": "http://www.raritanval.edu/",
+        "ele": "48",
+        "gnis:feature_id": "2059626",
+        "name": "Raritan Valley Community College",
+        "wikidata": "Q7294576",
+        "wikipedia": "en:Raritan Valley Community College"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.6882225,
+          40.6100961
+        ]
+      },
+      "id": "node/357746143"
+    }
+  ]
+}
