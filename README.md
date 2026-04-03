@@ -1,102 +1,86 @@
 # Pathster — RVCC Campus Community App
 
-**One app. Find your class. Hear campus live. Pathster guides RVCC.**
+Pathster is RVCC's campus app combining GPS mapping with live radio.
 
-Pathster is RVCC's all-in-one campus app: dead-accurate GPS map to every classroom plus live Radio Club streaming—right on your phone or browser. Students build the map themselves with AR scans and pins, earning gift cards, free meals, or competing for prizes. Built with React Native + Expo for seamless cross-platform deployment.
+Find any classroom on an interactive map. Listen to campus radio broadcasts. Earn rewards for helping complete the map.
 
-## Mission
+## Quick Start
 
-Improve daily campus navigation and foster community connection through:
+**New to the project?** Start here: [**Read the documentation**](docs/README.md)
 
-- **GPS-powered interactive map** → Find classrooms, buildings, and key locations
-- **Live Radio Club streaming** → Campus broadcasts on Android, iOS, and web
-- **Citizen science engagement** → Community-driven map data collection with meaningful incentives
+The docs teach you:
+- What Pathster does and why it exists
+- How the system works (frontend, backend, databases)
+- How to install and run the project
+- How to write code professionally
+- How to test, deploy, and contribute
 
-## Core features
+Estimated time: **2 hours end-to-end** (including hands-on practice)
 
-### Phase 1: GPS Mapping (Current Focus)
+## Features
 
-- Interactive campus map with all buildings and classrooms
-- GPS navigation and real-time location tracking
-- AR-enabled location scanning for data verification
-- Citizen science submission pipeline (photos, sensor tags, pins)
-- Leaderboards and competition mechanics
-- Incentive system (gift cards, meal vouchers, academic credits)
+### Phase 1: GPS Map (Current)
 
-### Phase 2: Radio Integration
+- Interactive campus map showing all classrooms
+- Real-time GPS navigation
+- Student-submitted locations with photos
+- Point system and leaderboards
+- Rewards: gift cards, meals, academic credits
 
-- Live streaming UI for Radio Club broadcasts
-- Broadcast schedule management
-- Offline listening queue (caching)
+### Phase 2: Radio Streaming (Future)
 
-## Tech stack
+- Live campus radio broadcasts
+- Schedule management
+- Offline listening
 
-- **Backend:** Express.js (TypeScript) — MVC architecture, REST API
-- **Frontend:** React Native + Expo — iOS, Android, PWA
-- **Shared libraries:** API client, types, utilities (TypeScript)
-- **Runtime:** Node.js 24 LTS, npm 11 LTS
-- **Quality gates:** ESLint, Prettier, TypeScript strict, Vitest, Husky pre-commit hooks
+## Technology
 
-## Project structure
+| Part | Technology | Why |
+|------|-----------|-----|
+| **Backend** | Express.js + TypeScript | Simple, reliable, type-safe |
+| **Frontend** | React Native + Expo | Works on iPhone, Android, web |
+| **Database** | MongoDB | Flexible data storage |
+| **Cache** | Redis | Fast performance |
 
-```
-apps/
-  server/          → Backend API (Express, MVC)
-  client/          → Frontend (React Native, Expo)
-libs/
-  api-client/      → Shared API client types & utilities (TBD)
-tools/
-  run-workspaces   → Monorepo orchestration
-```
-
-## Development setup
-
-### Prerequisites
-
-- Node.js 24 LTS or later (use `nvm use` in the repo root)
-- npm 11 or later
+## For Developers
 
 ### Install
 
 ```bash
 npm install
+npm run dev -w apps/server    # Backend on http://localhost:3000
+npm run web -w apps/client    # Frontend on http://localhost:8081
 ```
 
-### Development
-
-**Backend (Express API):**
+### Quality Checks
 
 ```bash
-npm run dev -w apps/server
-# Runs on http://localhost:3000
-# Auto-reloads with `tsx watch`
+npm run typecheck             # Check for errors
+npm run test                  # Run tests
+npm run lint                  # Check style
+npm run precommit:verify      # All checks together
 ```
 
-**Client (React Native):**
+## Documentation Structure
 
-```bash
-# Local development server
-npm run web -w apps/client
+All guides in `docs/`:
 
-# Android emulator
-npm run android -w apps/client
+1. **[01-OVERVIEW](docs/01-OVERVIEW.md)** — What is Pathster?
+2. **[02-SYSTEM-ARCHITECTURE](docs/02-SYSTEM-ARCHITECTURE.md)** — How parts connect
+3. **[03-FRONTEND-LAYERS](docs/03-FRONTEND-LAYERS.md)** — Frontend organization
+4. **[04-BACKEND-LAYERS](docs/04-BACKEND-LAYERS.md)** — Backend organization
+5. **[05-SETUP-YOUR-COMPUTER](docs/05-SETUP-YOUR-COMPUTER.md)** — Installation
+6. **[06-YOUR-FIRST-TASK](docs/06-YOUR-FIRST-TASK.md)** — Make your first change
+7. **[07-DOCKER-CONTAINERS](docs/07-DOCKER-CONTAINERS.md)** — Docker explained
+8. **[08-TESTING](docs/08-TESTING.md)** — Testing strategies
+9. **[09-DEPLOYMENT](docs/09-DEPLOYMENT.md)** — Production release
+10. **[10-CONTRIBUTING](docs/10-CONTRIBUTING.md)** — Team guidelines
 
-# iOS simulator (macOS only)
-npm run ios -w apps/client
+## Links
 
-# Static web export (SPA)
-npm run export:web -w apps/client
-# Output: apps/client/dist-web/
-```
-
-### Quality gates
-
-All commits are gated by Husky pre-commit hooks:
-
-```bash
-npm run precommit:verify
-# Runs: format:check → lint → test
-```
+- **Issues**: [GitHub Issues](https://github.com/rvcc/pathster/issues)
+- **Questions**: [GitHub Discussions](https://github.com/rvcc/pathster/discussions)
+- **Code**: [GitHub Repository](https://github.com/rvcc/pathster)
 
 **Individual checks:**
 
