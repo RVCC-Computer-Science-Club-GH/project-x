@@ -11,18 +11,22 @@ Don't try to read everything at once. Read one guide, practice it, then move on.
 ## Learning Path (Read in This Order)
 
 ### Foundations
+
 1. **[01-OVERVIEW.md](01-OVERVIEW.md)** — What is Pathster? Why did we build it?
 2. **[02-SYSTEM-ARCHITECTURE.md](02-SYSTEM-ARCHITECTURE.md)** — How all parts connect together
 
 ### How Code is Organized
+
 3. **[03-FRONTEND-LAYERS.md](03-FRONTEND-LAYERS.md)** — Frontend structure and clean architecture
 4. **[04-BACKEND-LAYERS.md](04-BACKEND-LAYERS.md)** — Backend MVC organization
 
 ### Getting Your Hands Dirty
+
 5. **[05-SETUP-YOUR-COMPUTER.md](05-SETUP-YOUR-COMPUTER.md)** — Install the project and run it
 6. **[06-YOUR-FIRST-TASK.md](06-YOUR-FIRST-TASK.md)** — Make your first code change
 
 ### Professional Development
+
 7. **[07-DOCKER-CONTAINERS.md](07-DOCKER-CONTAINERS.md)** — Package apps with Docker
 8. **[08-TESTING.md](08-TESTING.md)** — Write and run tests
 9. **[09-DEPLOYMENT.md](09-DEPLOYMENT.md)** — Release to production
@@ -83,19 +87,19 @@ Don't guess. Ask questions!
 
 ## Estimated Reading Time
 
-| Guide | Time |
-|-------|------|
-| 01-OVERVIEW | 5 min |
-| 02-SYSTEM-ARCHITECTURE | 10 min |
-| 03-FRONTEND-LAYERS | 15 min |
-| 04-BACKEND-LAYERS | 15 min |
+| Guide                  | Time              |
+| ---------------------- | ----------------- |
+| 01-OVERVIEW            | 5 min             |
+| 02-SYSTEM-ARCHITECTURE | 10 min            |
+| 03-FRONTEND-LAYERS     | 15 min            |
+| 04-BACKEND-LAYERS      | 15 min            |
 | 05-SETUP-YOUR-COMPUTER | 20 min (hands-on) |
-| 06-YOUR-FIRST-TASK | 15 min (hands-on) |
-| 07-DOCKER-CONTAINERS | 15 min |
-| 08-TESTING | 20 min |
-| 09-DEPLOYMENT | 15 min |
-| 10-CONTRIBUTING | 20 min |
-| **Total** | **~2 hours** |
+| 06-YOUR-FIRST-TASK     | 15 min (hands-on) |
+| 07-DOCKER-CONTAINERS   | 15 min            |
+| 08-TESTING             | 20 min            |
+| 09-DEPLOYMENT          | 15 min            |
+| 10-CONTRIBUTING        | 20 min            |
+| **Total**              | **~2 hours**      |
 
 If you actually follow along on your computer, add 1-2 hours.
 
@@ -122,9 +126,9 @@ Ready to start?
 We want these guides to be helpful.
 
 If something is unclear:
+
 - Comment on GitHub Issues
 - Post in GitHub Discussions
 - Tell us directly
 
 Let's make learning fun! 🚀
-

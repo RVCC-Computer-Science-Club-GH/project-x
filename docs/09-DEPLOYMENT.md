@@ -6,27 +6,30 @@ Deployment means moving your code from your computer to a live server.
 
 Users can then access it on the internet.
 
-| Stage | Where It Runs | Who Uses It |
-|-------|---------------|-----------|
-| **Development** | Your computer | Just you |
-| **Staging** | Test server | QA team |
-| **Production** | Live server | Real users |
+| Stage           | Where It Runs | Who Uses It |
+| --------------- | ------------- | ----------- |
+| **Development** | Your computer | Just you    |
+| **Staging**     | Test server   | QA team     |
+| **Production**  | Live server   | Real users  |
 
 ## Before You Deploy
 
 Make sure:
 
 ✅ All tests pass
+
 ```bash
 npm run test
 ```
 
 ✅ Code has no type errors
+
 ```bash
 npm run typecheck
 ```
 
 ✅ Code passes linting
+
 ```bash
 npm run lint
 ```
@@ -44,6 +47,7 @@ TypeScript gets compiled to JavaScript.
 React components get compiled to HTML/CSS/JavaScript.
 
 #### Build Backend
+
 ```bash
 npm run build -w apps/server
 ```
@@ -51,6 +55,7 @@ npm run build -w apps/server
 Creates compiled Files in `dist/` folder.
 
 #### Build Frontend
+
 ```bash
 npm run export:web -w apps/client
 ```
@@ -65,7 +70,7 @@ Docker images package your app with dependencies.
 # Build backend image
 docker build -f apps/server/Dockerfile -t pathster-backend:v1.0.0 .
 
-# Build frontend image  
+# Build frontend image
 docker build -f apps/client/Dockerfile -t pathster-client:v1.0.0 .
 ```
 
@@ -76,6 +81,7 @@ An image is a template. Containers are started from images.
 A registry stores Docker images (like GitHub stores code).
 
 Popular registries:
+
 - Docker Hub
 - GitHub Container Registry
 - AWS ECR
@@ -116,8 +122,9 @@ curl https://api.pathster.rvcc.edu/health
 ```
 
 Should return:
+
 ```json
-{"status":"ok"}
+{ "status": "ok" }
 ```
 
 Visit the website:
@@ -133,6 +140,7 @@ Should load without errors.
 Production needs different settings than development.
 
 ### Development Settings
+
 ```
 API_URL=http://localhost:3000
 DEBUG=true
@@ -140,6 +148,7 @@ LOG_LEVEL=verbose
 ```
 
 ### Production Settings
+
 ```
 API_URL=https://api.pathster.rvcc.edu
 DEBUG=false
@@ -149,6 +158,7 @@ LOG_LEVEL=error
 Set these on the deployment server, not in code.
 
 Example, on Heroku:
+
 ```bash
 heroku config:set API_URL=https://api.pathster.rvcc.edu
 ```
@@ -195,11 +205,11 @@ When you fix a bug or add a feature:
 
 Use semantic versioning: `MAJOR.MINOR.PATCH`
 
-| Version | When to Use | Example Change |
-|---------|-----------|-----------------|
+| Version           | When to Use      | Example Change           |
+| ----------------- | ---------------- | ------------------------ |
 | `1.0.0` → `2.0.0` | Breaking changes | Remove old API endpoints |
-| `1.0.0` → `1.1.0` | New features | Add new search function |
-| `1.0.0` → `1.0.1` | Bug fixes | Fix typo in response |
+| `1.0.0` → `1.1.0` | New features     | Add new search function  |
+| `1.0.0` → `1.0.1` | Bug fixes        | Fix typo in response     |
 
 ## Continuous Deployment
 
@@ -217,6 +227,7 @@ This uses "CI/CD" (Continuous Integration / Continuous Deployment).
 ### Issue: "Internal Server Error"
 
 Check logs:
+
 ```bash
 docker logs pathster-backend | tail -20
 ```
@@ -226,6 +237,7 @@ Look for stack trace.
 ### Issue: "Page loads slowly"
 
 Check performance:
+
 ```bash
 # View raw logs
 docker logs pathster-backend
@@ -236,6 +248,7 @@ docker logs pathster-backend
 ### Issue: "Database connection failed"
 
 Check environment variables:
+
 ```bash
 heroku config
 
@@ -247,6 +260,7 @@ Check the database is running.
 ### Issue: "Out of memory"
 
 Increase container resources:
+
 ```bash
 heroku scale web=2x
 # Run on larger container
@@ -295,13 +309,13 @@ Deploy carefully.
 
 ## Common Platforms
 
-| Platform | Good For | Cost |
-|----------|----------|------|
-| **Heroku** | Getting started quickly | Cheap to free tier |
-| **AWS** | Enterprise scale | Varies |
-| **DigitalOcean** | Simplicity | Affordable |
-| **Google Cloud** | High capacity | Varies |
-| **Azure** | Microsoft shops | Varies |
+| Platform         | Good For                | Cost               |
+| ---------------- | ----------------------- | ------------------ |
+| **Heroku**       | Getting started quickly | Cheap to free tier |
+| **AWS**          | Enterprise scale        | Varies             |
+| **DigitalOcean** | Simplicity              | Affordable         |
+| **Google Cloud** | High capacity           | Varies             |
+| **Azure**        | Microsoft shops         | Varies             |
 
 ## Monitoring and Alerts
 
@@ -324,7 +338,7 @@ If CPU usage spikes or errors increase, get an alert.
 ✅ **Deploy**: Run image on server  
 ✅ **Test**: Make sure it works  
 ✅ **Monitor**: Watch for problems  
-✅ **Update**: Deploy new versions with version numbers  
+✅ **Update**: Deploy new versions with version numbers
 
 ## Next Steps
 

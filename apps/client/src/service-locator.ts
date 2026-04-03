@@ -7,11 +7,7 @@
 import { createApiClient } from './config/api';
 import { RemoteDataSource, LocalDataSource } from './data/datasources';
 import { UserRepository, LocationRepository } from './data/repositories';
-import {
-  GetUserUseCase,
-  GetCurrentUserUseCase,
-  GetLocationsUseCase,
-} from './domain/usecases';
+import { GetUserUseCase, GetCurrentUserUseCase, GetLocationsUseCase } from './domain/usecases';
 
 class ServiceLocator {
   private static instance: ServiceLocator;
@@ -37,10 +33,7 @@ class ServiceLocator {
 
     // Initialize repositories
     this.userRepository = new UserRepository(this.remoteDataSource, this.localDataSource);
-    this.locationRepository = new LocationRepository(
-      this.remoteDataSource,
-      this.localDataSource,
-    );
+    this.locationRepository = new LocationRepository(this.remoteDataSource, this.localDataSource);
 
     // Initialize use cases
     this.getUserUseCase = new GetUserUseCase(this.userRepository);

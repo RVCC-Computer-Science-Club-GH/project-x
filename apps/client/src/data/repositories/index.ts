@@ -87,7 +87,9 @@ export class LocationRepository implements ILocationRepository {
   }
 
   async createLocation(location: Omit<Location, 'id' | 'createdAt'>): Promise<Location> {
-    const locationDto = await this.remoteDataSource.createLocation(location as Omit<LocationDTO, 'id' | 'createdAt'>);
+    const locationDto = await this.remoteDataSource.createLocation(
+      location as Omit<LocationDTO, 'id' | 'createdAt'>,
+    );
     return locationDtoToEntity(locationDto);
   }
 }

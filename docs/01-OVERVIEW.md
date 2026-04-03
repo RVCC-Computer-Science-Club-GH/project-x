@@ -41,13 +41,13 @@ Pathster rewards her with points toward free meals.
 
 ## The Technology Stack
 
-| Part | Technology | Why We Chose It |
-|------|-----------|-----------------|
-| **Frontend** | React Native + Expo | Works on iPhone, Android, and browsers |
-| **Backend** | Express.js + TypeScript | Simple and reliable for teams |
-| **Database** | MongoDB | Flexible for storing various data types |
-| **Caching** | Redis | Fast performance even with many users |
-| **Version Control** | Git + GitHub | Industry standard for teams |
+| Part                | Technology              | Why We Chose It                         |
+| ------------------- | ----------------------- | --------------------------------------- |
+| **Frontend**        | React Native + Expo     | Works on iPhone, Android, and browsers  |
+| **Backend**         | Express.js + TypeScript | Simple and reliable for teams           |
+| **Database**        | MongoDB                 | Flexible for storing various data types |
+| **Caching**         | Redis                   | Fast performance even with many users   |
+| **Version Control** | Git + GitHub            | Industry standard for teams             |
 
 All code is TypeScript. This catches bugs before the app runs.
 
@@ -66,6 +66,7 @@ We complete features in small, working pieces. We test each piece before moving 
 You're joining this project to learn professional development.
 
 You'll:
+
 - Read real production code
 - Follow code review processes
 - Submit your own features

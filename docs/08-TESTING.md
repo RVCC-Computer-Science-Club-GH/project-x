@@ -23,6 +23,7 @@ Test one small piece in isolation.
 Like testing: "Does this function work correctly?"
 
 **Example:**
+
 ```typescript
 // Test: Does doubling 5 give 10?
 test('double(5) returns 10', () => {
@@ -31,6 +32,7 @@ test('double(5) returns 10', () => {
 ```
 
 **Benefits:**
+
 - Fast to run
 - Easy to write
 - Find bugs quickly
@@ -42,6 +44,7 @@ Test multiple pieces working together.
 Like testing: "Does the API call the database correctly?"
 
 **Example:**
+
 ```typescript
 // Test: Can we get a location from the API?
 test('GET /api/locations/316 returns location', async () => {
@@ -51,6 +54,7 @@ test('GET /api/locations/316 returns location', async () => {
 ```
 
 **Benefits:**
+
 - Test real behavior
 - Catch communication bugs
 
@@ -61,6 +65,7 @@ Test the whole system.
 Like a user actually using the app.
 
 **Example:**
+
 ```typescript
 // Test: Can a user search for a room on the map?
 test('User can search and find a room', async () => {
@@ -72,10 +77,12 @@ test('User can search and find a room', async () => {
 ```
 
 **Benefits:**
+
 - Test real user workflows
 - Most confidence
 
 **Tradeoffs:**
+
 - Slowest to run
 - Hardest to write
 - Most fragile
@@ -132,17 +139,17 @@ describe('HealthService', () => {
 ```typescript
 describe('HealthService', () => {
   // Groups related tests
-  
+
   it('returns status ok', async () => {
     // "it" describes one test
     // "returns status ok" explains what it tests
-    
+
     const service = new HealthService();
     // Setup: Create an instance
-    
+
     const result = await service.getStatus();
     // Execute: Call the function
-    
+
     expect(result.status).toBe('ok');
     // Assert: Check the result
   });
@@ -163,17 +170,17 @@ describe('LocationController', () => {
       getLocation: async (id) => ({
         id,
         name: 'Room 316',
-        building: 'Science'
-      })
+        building: 'Science',
+      }),
     };
-    
+
     const controller = new LocationController(mockService);
     const mockRequest = { params: { id: '316' } };
     const mockResponse = { json: (data) => data };
-    
+
     // Execute
     const result = await controller.getLocation(mockRequest, mockResponse);
-    
+
     // Assert
     expect(result.name).toBe('Room 316');
   });
@@ -189,6 +196,7 @@ npm run test
 ```
 
 Output:
+
 ```
 ✓ health.service.test.ts (1 test)
 ✓ location.controller.test.ts (2 tests)
@@ -242,13 +250,13 @@ describe('UserService', () => {
       findUser: async (id) => ({
         id,
         name: 'Alice',
-        email: 'alice@rvcc.edu'
-      })
+        email: 'alice@rvcc.edu',
+      }),
     };
-    
+
     const service = new UserService(mockDatabase);
     const user = await service.getUser(123);
-    
+
     expect(user.name).toBe('Alice');
   });
 });
@@ -297,15 +305,15 @@ If something fails, you know exactly why.
 
 ## Common Assertions
 
-| Assertion | Checks |
-|-----------|--------|
-| `expect(x).toBe(5)` | x equals 5 |
-| `expect(x).toEqual({id: 1})` | x equals object |
-| `expect(x).toBeDefined()` | x is not undefined |
-| `expect(x).toBeNull()` | x is null |
-| `expect(x).toThrow()` | Function throws error |
-| `expect(x).toContain('text')` | Array/string has text |
-| `expect(fn).toHaveBeenCalled()` | Function was called |
+| Assertion                       | Checks                |
+| ------------------------------- | --------------------- |
+| `expect(x).toBe(5)`             | x equals 5            |
+| `expect(x).toEqual({id: 1})`    | x equals object       |
+| `expect(x).toBeDefined()`       | x is not undefined    |
+| `expect(x).toBeNull()`          | x is null             |
+| `expect(x).toThrow()`           | Function throws error |
+| `expect(x).toContain('text')`   | Array/string has text |
+| `expect(fn).toHaveBeenCalled()` | Function was called   |
 
 ## Writing Tests for the Clean Architecture
 
@@ -320,13 +328,13 @@ describe('GetLocationUseCase', () => {
     const mockRepository = {
       getLocation: async (id) => ({
         id,
-        name: 'Room 316'
-      })
+        name: 'Room 316',
+      }),
     };
-    
+
     const useCase = new GetLocationUseCase(mockRepository);
     const location = await useCase.execute('316');
-    
+
     expect(location.name).toBe('Room 316');
   });
 });
@@ -340,9 +348,9 @@ describe('LocationService', () => {
     const service = new LocationService();
     const result = service.formatLocation({
       id: '316',
-      name: 'Room 316'
+      name: 'Room 316',
     });
-    
+
     expect(result.roomNumber).toBe('316');
   });
 });
@@ -359,6 +367,7 @@ npm run test -- --coverage
 ```
 
 Output:
+
 ```
 Statements: 85%
 Branches: 78%

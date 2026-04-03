@@ -9,6 +9,7 @@ Find any classroom on an interactive map. Listen to campus radio broadcasts. Ear
 **New to the project?** Start here: [**Read the documentation**](docs/README.md)
 
 The docs teach you:
+
 - What Pathster does and why it exists
 - How the system works (frontend, backend, databases)
 - How to install and run the project
@@ -35,12 +36,12 @@ Estimated time: **2 hours end-to-end** (including hands-on practice)
 
 ## Technology
 
-| Part | Technology | Why |
-|------|-----------|-----|
-| **Backend** | Express.js + TypeScript | Simple, reliable, type-safe |
-| **Frontend** | React Native + Expo | Works on iPhone, Android, web |
-| **Database** | MongoDB | Flexible data storage |
-| **Cache** | Redis | Fast performance |
+| Part         | Technology              | Why                           |
+| ------------ | ----------------------- | ----------------------------- |
+| **Backend**  | Express.js + TypeScript | Simple, reliable, type-safe   |
+| **Frontend** | React Native + Expo     | Works on iPhone, Android, web |
+| **Database** | MongoDB                 | Flexible data storage         |
+| **Cache**    | Redis                   | Fast performance              |
 
 ## For Developers
 

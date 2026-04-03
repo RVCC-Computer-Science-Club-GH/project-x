@@ -69,6 +69,7 @@ NVM is "Node Version Manager." It switches Node versions easily.
 ### Install NVM
 
 **On Mac/Linux:**
+
 ```bash
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 ```
@@ -87,6 +88,7 @@ nvm use
 This reads `.nvmrc` and uses Node 24 LTS.
 
 Verify:
+
 ```bash
 node --version
 npm --version
@@ -105,6 +107,7 @@ npm install
 This takes a few minutes. Your computer might be busy.
 
 **You'll see:**
+
 - Progress bar
 - Lots of package names
 - "added 816 packages"
@@ -112,6 +115,7 @@ This takes a few minutes. Your computer might be busy.
 **Don't stop it.** Let it finish.
 
 When done, you'll see:
+
 ```
 added 816 packages in 45s
 ```
@@ -127,6 +131,7 @@ npm run typecheck
 This checks the code for errors before running.
 
 You should see:
+
 ```
 ✓ No errors
 ```
@@ -142,6 +147,7 @@ npm run dev -w apps/server
 ```
 
 You should see:
+
 ```
 server listening on port 3000
 ```
@@ -152,8 +158,9 @@ Your backend is running!
 Open your browser and go to `http://localhost:3000/health`
 
 You should see:
+
 ```json
-{"status":"ok"}
+{ "status": "ok" }
 ```
 
 ## Step 7: Start the Frontend (New Terminal Window)
@@ -172,10 +179,10 @@ You should see the React Native app.
 
 ## What You Now Have Running
 
-| Service | URL | What It Does |
-|---------|-----|-------------|
-| **Backend API** | http://localhost:3000 | Handles requests, talks to database |
-| **Frontend Web** | http://localhost:8081 | Shows the app in your browser |
+| Service          | URL                   | What It Does                        |
+| ---------------- | --------------------- | ----------------------------------- |
+| **Backend API**  | http://localhost:3000 | Handles requests, talks to database |
+| **Frontend Web** | http://localhost:8081 | Shows the app in your browser       |
 
 Both are running on your computer!
 
@@ -212,6 +219,7 @@ npm run typecheck
 ### "Module not found" error
 
 Make sure you ran:
+
 ```bash
 npm install
 ```
@@ -223,26 +231,31 @@ in the root pathster directory.
 From the root `pathster` directory:
 
 ### Check Everything Compiles
+
 ```bash
 npm run typecheck
 ```
 
 ### Run All Tests
+
 ```bash
 npm run test
 ```
 
 ### Format Code
+
 ```bash
 npm run format
 ```
 
 ### Run Backend Only
+
 ```bash
 npm run dev -w apps/server
 ```
 
 ### Run Frontend Only
+
 ```bash
 npm run web -w apps/client
 ```
@@ -250,18 +263,23 @@ npm run web -w apps/client
 ## What Each Part Does
 
 ### `package.json`
+
 List of dependencies and commands.
 
 ### `apps/client/`
+
 The frontend (React Native).
 
 ### `apps/server/`
+
 The backend (Express API).
 
 ### `libs/api-types/`
+
 Shared TypeScript types.
 
 ### `docs/`
+
 This documentation.
 
 ## Quick Test

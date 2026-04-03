@@ -6,10 +6,10 @@ MVC stands for "Model, View, Controller."
 
 It's a way to organize server code into three parts:
 
-| Part | Job | Like a Restaurant |
-|------|-----|------------------|
-| **Model** | Represents data | Recipe book (what ingredients go in each dish) |
-| **View** | Formats output | Plating (how the dish looks to the customer) |
+| Part           | Job              | Like a Restaurant                                |
+| -------------- | ---------------- | ------------------------------------------------ |
+| **Model**      | Represents data  | Recipe book (what ingredients go in each dish)   |
+| **View**       | Formats output   | Plating (how the dish looks to the customer)     |
 | **Controller** | Handles requests | Host (takes orders and coordinates with kitchen) |
 
 ## The Three Parts
@@ -21,11 +21,13 @@ The router is the first thing to receive requests.
 Think of it like an entry hall at a building.
 
 When a request comes in, the router says:
+
 - "Is this for user data? Send to user controller."
 - "Is this for locations? Send to location controller."
 - "Is this a new submission? Send to submission controller."
 
 **Example:**
+
 ```
 Request: GET /api/locations/find
 Router: "Send to LocationController"
@@ -41,6 +43,7 @@ Router: "Send to SubmissionController"
 The controller takes the request and coordinates the response.
 
 It's like a shift manager at a restaurant:
+
 1. Takes the order (request)
 2. Tells the kitchen what to make (calls service)
 3. Gets the result back
@@ -51,6 +54,7 @@ It's like a shift manager at a restaurant:
 **File location:** `apps/server/src/controllers/`
 
 **Example:**
+
 ```typescript
 // Controller says:
 // "Someone asked for all locations"
@@ -66,6 +70,7 @@ The controller code stays simple. It has about 5-10 lines of code.
 The service does all the real work.
 
 Think of it like the actual kitchen:
+
 - Validating data (is this request valid?)
 - Looking up information (is this user real?)
 - Calculating results (how many points did they earn?)
@@ -76,6 +81,7 @@ Think of it like the actual kitchen:
 **File location:** `apps/server/src/services/`
 
 **Example:**
+
 ```typescript
 // Service says:
 // "Check if this location is valid"
@@ -93,6 +99,7 @@ It's a template. Like a recipe defines ingredients, a model defines fields.
 **File location:** `apps/server/src/models/`
 
 **Example:**
+
 ```typescript
 // Model says:
 // "A Location has id, name, room, building, latitude, longitude"
@@ -109,12 +116,14 @@ The view formats data for the response.
 The client doesn't need all the data. The view picks what to send.
 
 Think of it like:
+
 - Database stores: `id, name, building, latitude, longitude, internal_id, created_timestamp`
 - View sends: `id, name, building, latitude, longitude`
 
 **File location:** `apps/server/src/views/`
 
 **Example:**
+
 ```typescript
 // View says:
 // "Client doesn't need the internal ID"
@@ -129,12 +138,14 @@ This protects internal details from being exposed.
 A student searches for "Room 316." Here's the journey:
 
 ### Step 1: Request Arrives
+
 ```
 Client: GET /api/locations/316
 ↓
 ```
 
 ### Step 2: Router Decides
+
 ```
 Router: "This is a location request"
 → Send to LocationController
@@ -142,6 +153,7 @@ Router: "This is a location request"
 ```
 
 ### Step 3: Controller Takes Action
+
 ```
 Controller:
   1. Receive the request with id: 316
@@ -152,6 +164,7 @@ Controller:
 ```
 
 ### Step 4: Service Does Work
+
 ```
 Service:
   1. Query the database
@@ -162,6 +175,7 @@ Service:
 ```
 
 ### Step 5: View Formats It
+
 ```
 View:
   1. Take location object
@@ -172,6 +186,7 @@ View:
 ```
 
 ### Step 6: Response Sent Back
+
 ```
 Server sends:
 {
@@ -230,6 +245,7 @@ apps/server/src/
 Let's add "Get all classrooms in a building."
 
 ### Step 1: Create Model
+
 ```typescript
 // models/classroom.model.ts
 interface Classroom {
@@ -243,6 +259,7 @@ interface Classroom {
 ```
 
 ### Step 2: Create Service
+
 ```typescript
 // services/classroom.service.ts
 class ClassroomService {
@@ -255,36 +272,40 @@ class ClassroomService {
 ```
 
 ### Step 3: Create Controller
+
 ```typescript
 // controllers/classroom.controller.ts
 export const getClassroomsByBuilding = async (req, res) => {
   const { building } = req.params;
   const classrooms = await classroomService.getClassroomsByBuilding(building);
   res.json(formatResponse(classrooms));
-}
+};
 ```
 
 ### Step 4: Create View
+
 ```typescript
 // views/classroom.view.ts
 export const formatClassroomListResponse = (classrooms) => {
-  return classrooms.map(c => ({
+  return classrooms.map((c) => ({
     id: c.id,
     room: c.roomNumber,
     building: c.building,
     floor: c.floor,
-    capacity: c.capacity
+    capacity: c.capacity,
   }));
-}
+};
 ```
 
 ### Step 5: Create Routes
+
 ```typescript
 // routes/classroom.routes.ts
 router.get('/classrooms/:building', getClassroomsByBuilding);
 ```
 
 ### Step 6: Wire It Up
+
 ```typescript
 // routes/index.ts
 app.use('/api', classroomRoutes);
@@ -303,12 +324,14 @@ Benefits of MVC:
 ## Common Mistakes to Avoid
 
 ❌ **Don't do this:**
+
 - Put all logic in the controller
 - Don't use models (just raw objects)
 - Call database from the route
 - Mix business logic with formatting
 
 ✅ **Do this:**
+
 - Controllers are thin (5-10 lines)
 - Services have the logic
 - Views format the output
@@ -322,7 +345,7 @@ export const getLocation = async (req, res) => {
   const { id } = req.params;
   const location = await locationService.getLocation(id);
   res.json(toLocationResponse(location));
-}
+};
 ```
 
 ```typescript
@@ -336,7 +359,7 @@ export const getLocation = async (req, res) => {
   // Handle errors
   // Log everything
   // ... 25 more lines
-}
+};
 ```
 
 ## Next Steps

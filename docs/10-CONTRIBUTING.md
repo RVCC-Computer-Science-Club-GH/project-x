@@ -15,6 +15,7 @@ Tasks come from GitHub Issues.
 Visit [GitHub Issues](https://github.com/rvcc/pathster/issues)
 
 Look for issues labeled:
+
 - `good first issue` — Easy for beginners
 - `help wanted` — Needs attention
 - `frontend` or `backend` — Pick your area
@@ -22,6 +23,7 @@ Look for issues labeled:
 ### 2. Claim the Task
 
 Comment on the issue:
+
 ```
 I'll work on this!
 ```
@@ -37,6 +39,7 @@ git checkout -b feature/descriptive-name
 ```
 
 Branch naming:
+
 - `feature/add-search` — New feature
 - `fix/map-crashes` — Bug fix
 - `docs/update-readme` — Documentation
@@ -125,19 +128,20 @@ describe('LocationService', () => {
     const mockDb = {
       findById: async (id) => ({
         id,
-        name: 'Room 316'
-      })
+        name: 'Room 316',
+      }),
     };
-    
+
     const service = new LocationService(mockDb);
     const location = await service.getLocation('316');
-    
+
     expect(location.name).toBe('Room 316');
   });
 });
 ```
 
 Run tests:
+
 ```bash
 npm run test
 ```
@@ -147,6 +151,7 @@ npm run test
 ### Naming Conventions
 
 **Files:**
+
 ```
 ✓ user.model.ts
 ✓ auth.service.ts
@@ -155,6 +160,7 @@ npm run test
 ```
 
 **Variables:**
+
 ```
 ✓ userId
 ✓ locationName
@@ -163,6 +169,7 @@ npm run test
 ```
 
 **Functions:**
+
 ```
 ✓ getUserById()
 ✓ updateLocation()
@@ -171,6 +178,7 @@ npm run test
 ```
 
 **Constants:**
+
 ```
 ✓ DEFAULT_TIMEOUT = 5000
 ✓ MAX_USERS = 100
@@ -270,6 +278,7 @@ function saveUser(user: User) {
 ```
 
 **Types:**
+
 - `feat:` — New feature
 - `fix:` — Bug fix
 - `docs:` — Documentation change
@@ -322,6 +331,7 @@ npm run precommit:verify
 ```
 
 This runs:
+
 1. Format check (Prettier)
 2. Lint check (ESLint)
 3. Type check (TypeScript)
@@ -345,6 +355,7 @@ git commit -m "feat: add GPS tracking"
 Husky checks runs automatically.
 
 If it passes:
+
 ```
 [feature/gps-tracking] feat: add GPS tracking
 ```
@@ -366,11 +377,13 @@ Click it.
 ### PR Title and Description
 
 **Title:**
+
 ```
 Add GPS tracking to map screen
 ```
 
 **Description:**
+
 ```
 ## What This Does
 Adds real-time location tracking to the map.
@@ -390,6 +403,7 @@ None
 ### PR Checklist
 
 Confirm:
+
 - [ ] Tests pass
 - [ ] Linting passes
 - [ ] No TypeScript errors
@@ -404,6 +418,7 @@ Request review from a team member:
 Click "Reviewers" → Pick a teammate
 
 They check:
+
 - Does the code solve the problem?
 - Is it correct?
 - Is it tested?
@@ -414,7 +429,7 @@ They check:
 Reviewer might request changes:
 
 ```
-[Reviewer]: This function is too complex. 
+[Reviewer]: This function is too complex.
 Please split it into smaller functions.
 ```
 
@@ -427,9 +442,9 @@ function processSubmission() {
 }
 
 // After: Smaller functions
-function validateSubmission() { }
-function saveSubmission() { }
-function notifyUser() { }
+function validateSubmission() {}
+function saveSubmission() {}
+function notifyUser() {}
 ```
 
 **Commit the fix:**
@@ -529,6 +544,7 @@ Use these for coordination:
 Don't both work on the same file at once.
 
 If you will:
+
 - Communicate first
 - Split the work clearly
 - One person pushes first
@@ -539,19 +555,22 @@ If you will:
 Stuck? Ask in several ways:
 
 1. **GitHub Issue Comments**
+
    ```
-   I'm stuck on [X]. 
+   I'm stuck on [X].
    I tried [Y] but it didn't work.
    Can someone help?
    ```
 
 2. **PR Comments**
+
    ```
    @reviewer I'm not sure about this approach.
    Should I use [A] or [B]?
    ```
 
 3. **Team Meetings**
+
    ```
    Can we discuss the best way to do [X]?
    ```
@@ -568,7 +587,7 @@ Stuck? Ask in several ways:
 Be respectful:
 
 ```
-✓ "This function could be simpler. 
+✓ "This function could be simpler.
    What if we extracted [X]?"
 
 ✗ "Your code is bad and confusing."
@@ -577,7 +596,7 @@ Be respectful:
 Ask questions:
 
 ```
-✓ "I'm not sure why this check is needed. 
+✓ "I'm not sure why this check is needed.
    Can you explain?"
 
 ✗ "This is wrong."
@@ -596,7 +615,7 @@ Acknowledge good work:
 Don't take it personally. Code review improves code quality.
 
 ```
-✓ "Thanks for pointing that out. 
+✓ "Thanks for pointing that out.
    I'll fix it."
 
 ✗ "That's how I like to code."
@@ -605,7 +624,7 @@ Don't take it personally. Code review improves code quality.
 Ask for clarification:
 
 ```
-✓ "I don't understand suggestion [X]. 
+✓ "I don't understand suggestion [X].
    Can you show me an example?"
 ```
 

@@ -7,6 +7,7 @@ You're going to make a small change to show everything is working.
 We'll change the health check message on the backend.
 
 This teaches you:
+
 - How to edit code
 - How to test your changes
 - How to commit changes to Git
@@ -52,7 +53,7 @@ export class HealthService {
   async getHealthStatus() {
     return {
       status: 'ok',
-      message: 'Pathster backend is running!',  // ADD THIS LINE
+      message: 'Pathster backend is running!', // ADD THIS LINE
       timestamp: new Date().toISOString(),
       uptime: process.uptime(),
     };
@@ -100,6 +101,7 @@ npm run test -w apps/server
 ```
 
 You should see:
+
 ```
 ✓ 1 test passed
 ```
@@ -131,6 +133,7 @@ git status
 ```
 
 You should see:
+
 ```
 modified: apps/server/src/services/health.service.ts
 ```
@@ -160,11 +163,13 @@ git commit -m "feat: add message to health check response"
 ```
 
 Husky will run checks:
+
 - ✓ Format check
 - ✓ Linter check
 - ✓ Tests
 
 If all pass, you see:
+
 ```
 1 file changed
 ```
@@ -195,11 +200,13 @@ Click "Compare & pull request"
 ### Write a Description
 
 **Title:**
+
 ```
 Add message to health check response
 ```
 
 **Description:**
+
 ```
 The health check endpoint now includes helpful message text.
 
@@ -211,6 +218,7 @@ Click "Create pull request"
 ### Review Process
 
 A team member reviews your code and either:
+
 - ✅ Approves it
 - 💬 Requests changes
 
@@ -223,28 +231,28 @@ Once approved, you can merge to main.
 ✅ How to test your changes  
 ✅ How to commit to Git  
 ✅ How to create a pull request  
-✅ How Husky prevents bad commits  
+✅ How Husky prevents bad commits
 
 ## Common Git Commands
 
-| Command | What It Does |
-|---------|-------------|
-| `git status` | See what changed |
-| `git add [file]` | Mark file for commit |
-| `git commit -m "..."` | Save changes |
-| `git push` | Send to GitHub |
-| `git pull` | Get latest from GitHub |
-| `git checkout -b [name]` | Create a branch |
+| Command                  | What It Does           |
+| ------------------------ | ---------------------- |
+| `git status`             | See what changed       |
+| `git add [file]`         | Mark file for commit   |
+| `git commit -m "..."`    | Save changes           |
+| `git push`               | Send to GitHub         |
+| `git pull`               | Get latest from GitHub |
+| `git checkout -b [name]` | Create a branch        |
 
 ## Key Files in This Project
 
-| File | What It Does |
-|------|-------------|
-| `package.json` | List of commands and dependencies |
-| `tsconfig.json` | TypeScript settings |
-| `.eslintrc` | Code style rules |
-| `.prettierrc` | Code formatting |
-| `.husky/` | Git hooks (run before commits) |
+| File            | What It Does                      |
+| --------------- | --------------------------------- |
+| `package.json`  | List of commands and dependencies |
+| `tsconfig.json` | TypeScript settings               |
+| `.eslintrc`     | Code style rules                  |
+| `.prettierrc`   | Code formatting                   |
+| `.husky/`       | Git hooks (run before commits)    |
 
 ## Important Rules
 

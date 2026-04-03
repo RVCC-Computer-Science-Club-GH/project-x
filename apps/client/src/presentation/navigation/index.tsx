@@ -1,7 +1,7 @@
 /**
  * Navigation Setup
  * Configure React Navigation for the app
- * 
+ *
  * TODO: Install @react-navigation packages when compatible versions are available
  * For now, this is a placeholder for the navigation structure
  */
@@ -26,4 +26,3 @@ export const RootNavigator: React.FC = () => {
     </View>
   );
 };
-

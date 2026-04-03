@@ -13,6 +13,7 @@ It's like organizing a restaurant:
 Each has a specific job. They don't cross responsibilities.
 
 In frontend code:
+
 - **Kitchen** = Data storage and API calls
 - **Dining room** = Buttons and screens
 - **Manager** = Business logic
@@ -24,6 +25,7 @@ In frontend code:
 This layer shows the user interface. It's everything on screen.
 
 **What goes here:**
+
 - Buttons and text inputs
 - Maps and images
 - Screens and navigation
@@ -45,6 +47,7 @@ This layer shows the user interface. It's everything on screen.
 This layer stores the business rules. It's the manager of the system.
 
 **What goes here:**
+
 - What a "User" object contains
 - What a "Location" object contains
 - What "searching for a room" means
@@ -68,6 +71,7 @@ This layer stores the business rules. It's the manager of the system.
 This layer talks to the API and stores data locally.
 
 **What goes here:**
+
 - Calling the API server
 - Saving data on the phone
 - Caching (storing recent data to avoid repeated API calls)
@@ -76,6 +80,7 @@ This layer talks to the API and stores data locally.
 **File location:** `apps/client/src/data/`
 
 **Example:** When the app needs a list of locations, this layer:
+
 1. Checks if we already asked for this today (cache)
 2. If not cached, calls the API
 3. Saves the results locally
@@ -94,6 +99,7 @@ This layer talks to the API and stores data locally.
 This layer stores all settings and setup code.
 
 **What goes here:**
+
 - API server addresses
 - Timeout values
 - Environment-specific settings (development vs. production)
@@ -113,6 +119,7 @@ This layer stores all settings and setup code.
 Let's trace what happens when a student searches for a location:
 
 ### Step 1: User Taps Button (Presentation)
+
 ```
 Screen: Student sees button "Find Room"
 Action: Student taps it
@@ -120,6 +127,7 @@ Layer: Presentation
 ```
 
 ### Step 2: Layer Calls Business Logic (Domain)
+
 ```
 Message: "Find this location"
 Layer: Domain
@@ -127,6 +135,7 @@ Action: Creates a use case (like a job order)
 ```
 
 ### Step 3: Get the Data (Data)
+
 ```
 Layer: Data
 Action: "Check cache for this location"
@@ -135,6 +144,7 @@ Action: "Save the result"
 ```
 
 ### Step 4: Return Results (Back Through Layers)
+
 ```
 Data → Format the answer
 Domain → Add any business rules
@@ -146,6 +156,7 @@ Presentation → Show it on screen
 Connecting the layers is important. That's where "Service Locator" comes in.
 
 Think of it like this:
+
 - Presentation layer needs to use Domain layer
 - Domain layer needs Data layer
 - But how do they find each other?
@@ -195,6 +206,7 @@ Let's say we want to add "Find my class schedule."
 
 **Step 1: What data does it involve?**
 Create entity in Domain (Presentation → Domain):
+
 ```typescript
 // src/domain/entities/
 interface ClassSchedule {
@@ -206,6 +218,7 @@ interface ClassSchedule {
 
 **Step 2: Where does it come from?**
 Create repository interface in Domain:
+
 ```typescript
 // src/domain/repositories/
 interface IScheduleRepository {
@@ -215,6 +228,7 @@ interface IScheduleRepository {
 
 **Step 3: What's the business rule?**
 Create use case in Domain (the job to do):
+
 ```typescript
 // src/domain/usecases/
 class GetScheduleUseCase {
@@ -226,6 +240,7 @@ class GetScheduleUseCase {
 
 **Step 4: How do we format the API response?**
 Create DTO in Data layer:
+
 ```typescript
 // src/data/models/
 interface ScheduleDTO {
@@ -237,6 +252,7 @@ interface ScheduleDTO {
 
 **Step 5: How do we get it from the server?**
 Implement in Data layer:
+
 ```typescript
 // src/data/repositories/
 class ScheduleRepository implements IScheduleRepository {
@@ -249,6 +265,7 @@ class ScheduleRepository implements IScheduleRepository {
 
 **Step 6: Show it to users**
 Create screen in Presentation:
+
 ```typescript
 // src/presentation/screens/
 export function ScheduleScreen() {
@@ -259,6 +276,7 @@ export function ScheduleScreen() {
 
 **Step 7: Connect everything**
 Update Service Locator:
+
 ```typescript
 // Service Locator introduces all the pieces
 ```
@@ -276,11 +294,13 @@ This structure has real benefits:
 ## Common Mistakes to Avoid
 
 ❌ **Don't break the rules:**
+
 - No Presentation directly calling APIs
 - No Data layer handling business logic
 - No mixing layers together
 
 ✅ **Do follow the structure:**
+
 - Follow clear responsibilities
 - Use the Service Locator
 - Test each layer separately
