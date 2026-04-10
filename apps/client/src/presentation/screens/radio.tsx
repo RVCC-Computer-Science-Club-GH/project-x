@@ -19,24 +19,23 @@ type RootStackParamList = {
     Help: undefined;
   };
   
-  // Define the props for the HomeScreen
-  type HomeScreenProps = {
-    navigation: StackNavigationProp<RootStackParamList, 'Home'>;
+  // Define the props for the GpsScreen
+  type RadioScreenProps = {
+    navigation: StackNavigationProp<RootStackParamList, 'Radio'>;
   };
 
 /**
- * Home Screen - Entry point of the app
+ * Radio Screen - Campus radio station for RV students
  */
-export const HomeScreen: React.FC<HomeScreenProps> = ({navigation}) => {
+export const RadioScreen: React.FC<RadioScreenProps> = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.top}>
-        <Text style={styles.title}>Welcome to Pathster</Text>
-        <Text style={styles.subtitle}>Start exploring</Text>
+        <Text style={styles.title}>RV Radio</Text>
+      <Text style={styles.subtitle}>Tune in to Campus Life</Text>
       </View>
-      <View style={styles.nav}>
-        <NavBar navigation={navigation}></NavBar>   
-      </View> 
+     <View style={styles.nav}> <NavBar navigation={navigation}></NavBar>
+     </View>
     </View>
   );
 };

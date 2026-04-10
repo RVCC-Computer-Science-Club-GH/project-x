@@ -14,6 +14,8 @@ export const colors = {
   text: '#000000',
   textSecondary: '#999999',
   border: '#E0E0E0',
+  rvgreen: '#84b846',
+  rvpurple: '#5e498a',
 };
 
 export const spacing = {

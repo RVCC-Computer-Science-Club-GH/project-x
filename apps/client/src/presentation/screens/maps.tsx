@@ -19,24 +19,25 @@ type RootStackParamList = {
     Help: undefined;
   };
   
-  // Define the props for the HomeScreen
-  type HomeScreenProps = {
-    navigation: StackNavigationProp<RootStackParamList, 'Home'>;
+  // Define the props for the Map Screen
+  type MapScreenProps = {
+    navigation: StackNavigationProp<RootStackParamList, 'Maps'>;
   };
 
 /**
- * Home Screen - Entry point of the app
+ * Map Screen - A searchable map of the RV campus with building locations, parking, and more
+ * Allows students to find their classes, parking, and navigate the campus
  */
-export const HomeScreen: React.FC<HomeScreenProps> = ({navigation}) => {
+export const MapScreen: React.FC<MapScreenProps> = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.top}>
-        <Text style={styles.title}>Welcome to Pathster</Text>
-        <Text style={styles.subtitle}>Start exploring</Text>
+        <Text style={styles.title}>RV Maps</Text>
+        <Text style={styles.subtitle}>Find Your Classes, Parking, and More!</Text>
       </View>
       <View style={styles.nav}>
-        <NavBar navigation={navigation}></NavBar>   
-      </View> 
+        <NavBar navigation={navigation}></NavBar>
+      </View>
     </View>
   );
 };
@@ -49,7 +50,6 @@ const styles = StyleSheet.create({
     padding: spacing.md,
     justifyContent: 'center',
     alignItems: 'center',
-    verticalAlign: 'top',
   },
   title: {
     ...typography.h1,

@@ -19,24 +19,25 @@ type RootStackParamList = {
     Help: undefined;
   };
   
-  // Define the props for the HomeScreen
-  type HomeScreenProps = {
-    navigation: StackNavigationProp<RootStackParamList, 'Home'>;
+  // Define the props for the HelpScreen
+  type HelpScreenProps = {
+    navigation: StackNavigationProp<RootStackParamList, 'Help'>;
   };
 
 /**
- * Home Screen - Entry point of the app
+ * Help Screen - FAQs, contact info, and support resources for RV students
+ * Provides answers to common questions and ways to get help
  */
-export const HomeScreen: React.FC<HomeScreenProps> = ({navigation}) => {
+export const HelpScreen: React.FC<HelpScreenProps> = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.top}>
-        <Text style={styles.title}>Welcome to Pathster</Text>
-        <Text style={styles.subtitle}>Start exploring</Text>
-      </View>
+      <Text style={styles.title}>Help</Text>
+      <Text style={styles.subtitle}>Search FAQs</Text>
+        </View>
       <View style={styles.nav}>
-        <NavBar navigation={navigation}></NavBar>   
-      </View> 
+        <NavBar navigation={navigation}></NavBar>
+        </View>
     </View>
   );
 };
@@ -49,7 +50,6 @@ const styles = StyleSheet.create({
     padding: spacing.md,
     justifyContent: 'center',
     alignItems: 'center',
-    verticalAlign: 'top',
   },
   title: {
     ...typography.h1,
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
   },
-  top: {
+    top: {
     position: 'absolute',
     top: 0,
     left: 0,

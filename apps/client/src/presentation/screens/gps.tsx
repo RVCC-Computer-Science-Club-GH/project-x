@@ -19,24 +19,25 @@ type RootStackParamList = {
     Help: undefined;
   };
   
-  // Define the props for the HomeScreen
-  type HomeScreenProps = {
-    navigation: StackNavigationProp<RootStackParamList, 'Home'>;
+  // Define the props for the GpsScreen
+  type GpsScreenProps = {
+    navigation: StackNavigationProp<RootStackParamList, 'GPS'>;
   };
 
 /**
- * Home Screen - Entry point of the app
+ * GPS Screen - Google Maps like navigation for RV students
+ * Shows current location, directions to classes, parking, and more
  */
-export const HomeScreen: React.FC<HomeScreenProps> = ({navigation}) => {
+export const GpsScreen: React.FC<GpsScreenProps> = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.top}>
-        <Text style={styles.title}>Welcome to Pathster</Text>
-        <Text style={styles.subtitle}>Start exploring</Text>
-      </View>
+        <Text style={styles.title}>GPS</Text>
+      <Text style={styles.subtitle}>RV navigator</Text>
+     </View>
       <View style={styles.nav}>
-        <NavBar navigation={navigation}></NavBar>   
-      </View> 
+        <NavBar navigation={navigation} />
+        </View>
     </View>
   );
 };
